@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &213111487883485118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2700243951968524100}
+  m_Layer: 0
+  m_Name: MiddlePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2700243951968524100
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213111487883485118}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.08, y: 0.55, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8129817890346937537}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &946223527382289057
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,6 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8129817890346937537}
   - component: {fileID: 901820372693664237}
+  - component: {fileID: 8616780924364763522}
   m_Layer: 0
   m_Name: Enemy_00_RedGem
   m_TagString: Untagged
@@ -123,6 +155,7 @@ Transform:
   m_Children:
   - {fileID: 2131448930285322837}
   - {fileID: 3347472013905053720}
+  - {fileID: 2700243951968524100}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &901820372693664237
@@ -147,9 +180,23 @@ MonoBehaviour:
     currentHP: 100
     maxHP: 100
     evasion: 0.05
-  middlePoint: {fileID: 0}
+  middlePoint: {fileID: 2700243951968524100}
   hudPoint: {fileID: 3347472013905053720}
   uiPrefab: {fileID: 3854647761184137979, guid: 8b8a9baf9af8a4cd38317ac5cc104c10, type: 3}
+--- !u!114 &8616780924364763522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332893366624128834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52d783f1ffd2b4523a3ecf2972459c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyFSM
+  projectilePrefab: {fileID: 7502433428291959036, guid: 90f90daeef982412eb3f2a592228a53d, type: 3}
+  projectileSpawnPoint: {fileID: 2700243951968524100}
 --- !u!1 &1842629897160253104
 GameObject:
   m_ObjectHideFlags: 0

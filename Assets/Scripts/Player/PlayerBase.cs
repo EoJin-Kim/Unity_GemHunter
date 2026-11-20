@@ -16,32 +16,32 @@ public class PlayerBase : EntityBase
 
 	private void Update()
 	{
-		// if ( Target == null ) targetMark.gameObject.SetActive(false);
+		if ( Target == null ) targetMark.gameObject.SetActive(false);
 
-		// SearchTarget();
+		SearchTarget();
 	}
 
-	// private void SearchTarget()
-	// {
-	// 	float closestDistSqr = Mathf.Infinity;
+	private void SearchTarget()
+	{
+		float closestDistSqr = Mathf.Infinity;
 
-	// 	foreach ( var entity in EnemySpawner.Enemies )
-	// 	{
-	// 		// 제일 가까운 대상을 찾기 때문에 sqrMagnitude 사용.
-	// 		float distance = (entity.transform.position-transform.position).sqrMagnitude;
-	// 		if ( distance < closestDistSqr )
-	// 		{
-	// 			closestDistSqr = distance;
-	// 			Target = entity.GetComponent<EntityBase>();
-	// 		}
-	// 	}
+		foreach ( var entity in EnemySpawner.Enemies )
+		{
+			// 제일 가까운 대상을 찾기 때문에 sqrMagnitude 사용.
+			float distance = (entity.transform.position-transform.position).sqrMagnitude;
+			if ( distance < closestDistSqr )
+			{
+				closestDistSqr = distance;
+				Target = entity.GetComponent<EntityBase>();
+			}
+		}
 
-	// 	if ( Target != null )
-	// 	{
-	// 		targetMark.SetTarget(Target.transform);
-	// 		targetMark.transform.position = Target.transform.position;
-	// 		targetMark.gameObject.SetActive(true);
-	// 	}
-	// }
+		if ( Target != null )
+		{
+			targetMark.SetTarget(Target.transform);
+			targetMark.transform.position = Target.transform.position;
+			targetMark.gameObject.SetActive(true);
+		}
+	}
 }
 

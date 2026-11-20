@@ -11,8 +11,8 @@ public class EnemySpawner : MonoBehaviour
 	[SerializeField]
 	private	Transform		parentTransform;
 	
-    // [SerializeField]
-	// private	EntityBase		target;
+    [SerializeField]
+	private	EntityBase		target;
 
 	[SerializeField]
 	private	int				enemyCount = 10;
@@ -20,7 +20,7 @@ public class EnemySpawner : MonoBehaviour
 	private	Vector3			offset = new Vector3(0.5f, 0.5f, 0);
 	private	List<Vector3>	possibleTiles = new List<Vector3>();
 
-	// public static List<EntityBase>	Enemies { get; private set; } = new List<EntityBase>();
+	public static List<EntityBase>	Enemies { get; private set; } = new List<EntityBase>();
 
 	private void Awake()
 	{
@@ -37,9 +37,9 @@ public class EnemySpawner : MonoBehaviour
 
 			GameObject clone = Instantiate(enemyPrefabs[type], possibleTiles[index], Quaternion.identity, transform);
 			clone.GetComponent<EnemyBase>().Initialize(parentTransform);
-			// clone.GetComponent<EnemyFSM>().Setup(target);
+			clone.GetComponent<EnemyFSM>().Setup(target);
 
-			// Enemies.Add(clone.GetComponent<EntityBase>());
+			Enemies.Add(clone.GetComponent<EntityBase>());
 		}
 	}
 
