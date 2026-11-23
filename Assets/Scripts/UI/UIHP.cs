@@ -3,20 +3,27 @@ using UnityEngine.UI;
 
 public class UIHP : MonoBehaviour
 {
-	[SerializeField]
-	private	Image		image;
-	[SerializeField]
-	private	EntityBase	entity;
+    [SerializeField]
+    private Image image;
+    [SerializeField]
+    private EntityBase entity;
 
-	public void Setup(EntityBase entity)
-	{
+
+    private void Awake()
+    {
+        if (entity != null) entity.Stats.CurrentHP.OnValueChanged += UpdateHP;
+    }
+
+    public void Setup(EntityBase entity)
+    {
 		this.entity = entity;
-	}
+		this.entity.Stats.CurrentHP.OnValueChanged += UpdateHP;
+    }
 
-	private void Update()
-	{
-		image.fillAmount = entity.Stats.currentHP / entity.Stats.maxHP;
-	}
+    private void UpdateHP(Stat stat, float prev, float current)
+    {
+        image.fillAmount = entity.Stats.CurrentHP.Value / entity.Stats.GetStat(StatType.HP).Value;
+    }
 }
 
 
