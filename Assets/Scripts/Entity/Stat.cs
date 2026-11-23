@@ -51,6 +51,6 @@ public class Stat
 	}
 }
 
-public enum StatType { Damage = 0, CooldownTime, CriticalChance, CriticalMultiplier, HP, Evasion }
+// public enum StatType { Damage = 0, CooldownTime, CriticalChance, CriticalMultiplier, HP, Evasion }
 
-// public enum StatType { Damage = 0, CooldownTime, CriticalChance, CriticalMultiplier, HP, Evasion, MetastasisCount, HPRecovery, ProjectileCount, }
+public enum StatType { Damage = 0, CooldownTime, CriticalChance, CriticalMultiplier, HP, Evasion, MetastasisCount, HPRecovery, ProjectileCount, }
