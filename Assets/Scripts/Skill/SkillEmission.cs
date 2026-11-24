@@ -29,15 +29,14 @@ public class SkillEmission : SkillBase
 			if ( Time.time - currentAttackRate > attackRate )
 			{
 				GameObject projectile = GameObject.Instantiate(skillTemplate.projectile, spawnPoint.position, Quaternion.identity);
-                
-                projectile.GetComponent<ProjectileBase>().Setup(owner.Target, GetStat(StatType.Damage).Value);
 
-				// // ProjectileStraight, ProjectileHoming도 연발은 가능하지만 3, 4번째 매개변수는 필요 없기 때문에 기존과 동일하게 처리
-				// if ( projectile.TryGetComponent<ProjectileCubicHoming>(out var p) )
-				// 	p.Setup(owner.Target, GetStat(StatType.Damage).Value, maxCount, currentProjectileCount);
-				// else if ( projectile.TryGetComponent<ProjectileQuadraticHoming>(out var p2) )
-				// 	p2.Setup(owner.Target, GetStat(StatType.Damage).Value, maxCount, currentProjectileCount);
-				// else projectile.GetComponent<ProjectileBase>().Setup(owner.Target, GetStat(StatType.Damage).Value);
+
+				// ProjectileStraight, ProjectileHoming도 연발은 가능하지만 3, 4번째 매개변수는 필요 없기 때문에 기존과 동일하게 처리
+				if ( projectile.TryGetComponent<ProjectileCubicHoming>(out var p) )
+					p.Setup(owner.Target, GetStat(StatType.Damage).Value, maxCount, currentProjectileCount);
+				else if ( projectile.TryGetComponent<ProjectileQuadraticHoming>(out var p2) )
+					p2.Setup(owner.Target, GetStat(StatType.Damage).Value, maxCount, currentProjectileCount);
+				else projectile.GetComponent<ProjectileBase>().Setup(owner.Target, GetStat(StatType.Damage).Value);
 
 				currentProjectileCount ++;
 				currentAttackRate = Time.time;
