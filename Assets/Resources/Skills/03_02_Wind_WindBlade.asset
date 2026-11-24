@@ -12,14 +12,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2aa9554dbd0b417fa2d47458abdf475, type: 3}
   m_Name: 03_02_Wind_WindBlade
   m_EditorClassIdentifier: Assembly-CSharp::SkillTemplate
-  skillName: 
-  skillType: 0
-  element: 0
-  maxLevel: 0
-  description: 
-  disableIcon: {fileID: 0}
-  enableIcon: {fileID: 0}
+  skillName: Wind Blade
+  skillType: 1
+  element: 102
+  maxLevel: 99
+  description: "\uBC14\uB78C\uCE7C\uB0A0 \uBC1C\uC0AC\n[\uC801 \uAD00\uD1B5, \uBCBD
+    \uCDA9\uB3CC \uC2DC \uD30C\uAD34]"
+  disableIcon: {fileID: 21300000, guid: e5cf24f521376134fa823544d4f97f66, type: 3}
+  enableIcon: {fileID: 21300000, guid: 8ab5ab9f1ae5bc34baf0af3426b021c3, type: 3}
   buffStatList: []
-  attackBaseStats: []
-  attackBuffStats: []
-  projectile: {fileID: 0}
+  attackBaseStats:
+  - statType: 0
+    maxValue: 9999
+    minValue: 150
+    defaultValue: 150
+    bonusValue: 0
+  - statType: 1
+    maxValue: 5.5
+    minValue: 2.75
+    defaultValue: 5.5
+    bonusValue: 0
+  - statType: 8
+    maxValue: 1
+    minValue: 1
+    defaultValue: 1
+    bonusValue: 0
+  attackBuffStats:
+  - statType: 0
+    maxValue: 0
+    minValue: 0
+    defaultValue: 75
+    bonusValue: 0
+  - statType: 1
+    maxValue: 0
+    minValue: 0
+    defaultValue: -0.15
+    bonusValue: 0
+  projectile: {fileID: 4016439595639864914, guid: 693644514c7574648ae696fc8faf84e1, type: 3}
