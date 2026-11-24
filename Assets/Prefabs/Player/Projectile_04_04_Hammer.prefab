@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8788c44e144d406295ff3c0e8f1df5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileCollision2D
-  hitEffect: {fileID: 0}
+  hitEffect: {fileID: 1355416411512879926, guid: da7733f4e27640b4b9901f006e4c829e, type: 3}
   damageText: {fileID: 6858502846331936375, guid: e4d19d06ff77f426692d9b3376cacb8e, type: 3}
   destroyType: 0
   attackType: 0
