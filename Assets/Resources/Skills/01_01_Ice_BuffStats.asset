@@ -25,7 +25,7 @@ MonoBehaviour:
     minValue: 0
     defaultValue: 0.09
     bonusValue: 0
-  - statType: 2
+  - statType: 3
     maxValue: 0
     minValue: 0
     defaultValue: 0.2
