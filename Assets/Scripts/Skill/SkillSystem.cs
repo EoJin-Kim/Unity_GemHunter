@@ -25,7 +25,8 @@ public class SkillSystem : MonoBehaviour
             SkillBase skill = null;
             if (item.Value.skillType.Equals(SkillType.Buff)) skill = new SkillBuff();
             else if (item.Value.skillType.Equals(SkillType.Emission)) skill = new SkillEmission();
-
+            else if (item.Value.skillType.Equals(SkillType.Sustained)) skill = new SkillSustained();
+            
             skill.Setup(item.Value, owner, skillSpawnPoint);
             skills.Add(item.Key, skill);
             // 습득한 모든 스킬의 이름, 레벨, 설명 출력 [Debug]
