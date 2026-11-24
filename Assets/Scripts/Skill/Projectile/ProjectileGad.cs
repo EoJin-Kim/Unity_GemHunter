@@ -16,7 +16,7 @@ public class ProjectileGad : MonoBehaviour
     private EntityBase target;
     private float damage;
     private bool isCritical;
-    // private int metastasisCount;
+    private int metastasisCount;
     private int targetLayer;
 
     public void Setup(EntityBase owner, EntityBase target, float damage, bool isCritical = false)
@@ -26,7 +26,7 @@ public class ProjectileGad : MonoBehaviour
         this.target = target;
         this.damage = damage;
         this.isCritical = isCritical;
-        // metastasisCount = (int)owner.Stats.GetStat(StatType.MetastasisCount).Value;
+        metastasisCount = (int)owner.Stats.GetStat(StatType.MetastasisCount).Value;
         targetLayer = 1 << LayerMask.NameToLayer("Enemy");
 
         // 발사체의 크기를 35%에서 100%까지 확대
@@ -59,14 +59,13 @@ public class ProjectileGad : MonoBehaviour
 
             entity.TakeDamage(damage);
 
-            Destroy(gameObject);
 
-            // if (metastasisCount > 0)
-            // {
-            //     metastasisCount--;
-            //     FindNextTarget();
-            // }
-            // else Destroy(gameObject);
+            if (metastasisCount > 0)
+            {
+                metastasisCount--;
+                FindNextTarget();
+            }
+            else Destroy(gameObject);
         }
     }
 

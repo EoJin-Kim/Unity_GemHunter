@@ -22,29 +22,26 @@ public class SkillGad : MonoBehaviour
         // 스킬이 사용 가능한 상태인지 검사 (쿨타임)
         if (Time.time - currentCooldownTime > owner.Stats.GetStat(StatType.CooldownTime).Value)
         {
-            // StartCoroutine(nameof(SpawnProjectile));
-            var result = CalculateDamage();
-            ProjectileGad gad = Instantiate(projectile, spawnPoint.position, Quaternion.identity);
-            gad.Setup(owner, owner.Target, result.Item1, result.Item2);
+            StartCoroutine(nameof(SpawnProjectile));
 
             currentCooldownTime = Time.time;
         }
     }
 
-    // private IEnumerator SpawnProjectile()
-    // {
-    // 	int projectileCount = 0;
-    // 	while ( projectileCount < (int)owner.Stats.GetStat(StatType.ProjectileCount).Value )
-    // 	{
-    // 		var result = CalculateDamage();
-    // 		ProjectileGad gad = Instantiate(projectile, spawnPoint.position, Quaternion.identity);
-    // 		gad.Setup(owner, owner.Target, result.Item1, result.Item2);
+    private IEnumerator SpawnProjectile()
+    {
+    	int projectileCount = 0;
+    	while ( projectileCount < (int)owner.Stats.GetStat(StatType.ProjectileCount).Value )
+    	{
+    		var result = CalculateDamage();
+    		ProjectileGad gad = Instantiate(projectile, spawnPoint.position, Quaternion.identity);
+    		gad.Setup(owner, owner.Target, result.Item1, result.Item2);
 
-    // 		projectileCount ++;
+    		projectileCount ++;
 
-    // 		yield return attackRate;
-    // 	}
-    // }
+    		yield return attackRate;
+    	}
+    }
 
     private (float, bool) CalculateDamage()
     {
