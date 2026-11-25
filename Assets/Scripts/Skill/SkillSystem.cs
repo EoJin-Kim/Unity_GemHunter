@@ -9,9 +9,16 @@ public class SkillSystem : MonoBehaviour
     [SerializeField]
     private Transform skillSpawnPoint;
 
+    [SerializeField]
+    private UISkillList uiSkillList;
+
+
     private PlayerBase owner;
 
     private Dictionary<string, SkillBase> skills = new Dictionary<string, SkillBase>();
+
+    private Dictionary<SkillElement, int> elementalCounts = new Dictionary<SkillElement, int>();
+    private Dictionary<SkillElement, SkillBase> elementalSkills = new Dictionary<SkillElement, SkillBase>();
 
     private void Awake()
     {
@@ -33,6 +40,20 @@ public class SkillSystem : MonoBehaviour
             // 습득한 모든 스킬의 이름, 레벨, 설명 출력 [Debug]
             Logger.Log($"[{skill.SkillName}] Lv. {skill.CurrentLevel}\n{skill.Description}");
         }
+
+        var eSkillDict = Resources.LoadAll<SkillTemplate>("ElementalSkills/").ToDictionary(item => item.name, item => item);
+        foreach (var item in eSkillDict)
+        {
+            SkillBase skill = new SkillBuff();
+            skill.Setup(item.Value, owner, skillSpawnPoint);
+
+            elementalCounts.Add(item.Value.element, 0);         // 각 속성 보너스 스킬의 레벨 카운트
+            elementalSkills.Add(item.Value.element, skill);     // 각 속성 보너스 스킬(SkillBase)
+
+            Logger.Log($"{item.Value.element}, {item.Value.skillName}");
+        }
+
+        uiSkillList.Setup(skillDict, eSkillDict);
     }
 
     private void Update()
@@ -67,7 +88,18 @@ public class SkillSystem : MonoBehaviour
         if (skills.ContainsValue(skill))
         {
             skill.TryLevelUp();
+            uiSkillList.LevelUp(skill);
             Logger.Log($"Level Up [{skill.SkillName}] {skill.Element}, Lv. {skill.CurrentLevel}");
+
+            // 해당 스킬이 소속된 속성의 총 스킬레벨 합 +1
+            elementalCounts[skill.Element]++;
+            // 해당 스킬의 속성 보너스 레벨 증가 여부 판단
+            if (elementalCounts[skill.Element] % 3 == 0)
+            {
+                elementalSkills[skill.Element].TryLevelUp();
+                uiSkillList.LevelUp(elementalSkills[skill.Element]);
+                Logger.Log($"{skill.Element} Lv. {elementalSkills[skill.Element].CurrentLevel}");
+            }
         }
     }
 
