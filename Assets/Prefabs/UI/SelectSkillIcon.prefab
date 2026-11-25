@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uB208\uBCF4\uB77C (Blizzard)"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a5a5d323f0eea4c9f926eadccb32f3d1, type: 2}
+  m_sharedMaterial: {fileID: 5185442317354252094, guid: a5a5d323f0eea4c9f926eadccb32f3d1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -280,8 +280,8 @@ MonoBehaviour:
   m_text: "\uD544\uB4DC\uC5D0 \uB208\uBCF4\uB77C \uC0DD\uC131\n\uBAA8\uB4E0 \uC801\uC744
     \uC8FC\uAE30\uC801\uC73C\uB85C \uACF5\uACA9"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a5a5d323f0eea4c9f926eadccb32f3d1, type: 2}
+  m_sharedMaterial: {fileID: 5185442317354252094, guid: a5a5d323f0eea4c9f926eadccb32f3d1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

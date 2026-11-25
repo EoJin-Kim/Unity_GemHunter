@@ -26,7 +26,7 @@ public class UISelectSkillIcon : MonoBehaviour, IPointerClickHandler
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		// skillSystem.EndSelectSkill(skillBase);
+		skillSystem.EndSelectSkill(skillBase);
 	}
 }
 
