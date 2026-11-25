@@ -17,6 +17,7 @@ public abstract class SkillBase
     public string Description => skillTemplate.description;
     public int CurrentLevel => currentLevel;
     public bool IsMaxLevel => currentLevel == skillTemplate.maxLevel;
+    public PlayerBase Owner => owner;
 
     // 공격 스킬 전용 (공격력, 쿨타임, 발사체 개수와 같은 스탯)
     private Stat[] stats;
@@ -57,7 +58,7 @@ public abstract class SkillBase
     public void IsSkillAvailable()
     {
         // 레벨이 0이거나 버프 또는 지속 스킬인 경우는 스킬 사용 가능 상태 X
-        if ( CurrentLevel == 0 || SkillType == SkillType.Buff || SkillType == SkillType.Sustained ) return;
+        if (CurrentLevel == 0 || SkillType == SkillType.Buff || SkillType == SkillType.Sustained) return;
 
         if (Time.time - currentCooldownTime > GetStat(StatType.CooldownTime).Value)
         {

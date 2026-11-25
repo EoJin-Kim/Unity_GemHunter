@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "Unity_GemHunter.slnx"
+    "dotnet.defaultSolution": "GemHunter.slnx"
 }
