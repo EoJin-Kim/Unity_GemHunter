@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 8616780924364763522}
   - component: {fileID: 7215863709534216704}
   - component: {fileID: 6643507501794491168}
+  - component: {fileID: 8464474675229792821}
   m_Layer: 6
   m_Name: Enemy_00_RedGem
   m_TagString: Enemy
@@ -299,6 +300,35 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 0
+--- !u!114 &8464474675229792821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332893366624128834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Behavior::Unity.Behavior.BehaviorGraphAgent
+  m_Graph: {fileID: -407869487371473623, guid: aa733e259b8f2444ab146fc6f005b91b, type: 2}
+  m_BlackboardVariableOverridesList:
+  - rid: 6250687917161971821
+  m_OriginalGraph: {fileID: -407869487371473623, guid: aa733e259b8f2444ab146fc6f005b91b, type: 2}
+  m_IsInitialised: 0
+  m_IsStarted: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 6250687917161971821
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 1332893366624128834}
 --- !u!1 &1842629897160253104
 GameObject:
   m_ObjectHideFlags: 0

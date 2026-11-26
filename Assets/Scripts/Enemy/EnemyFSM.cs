@@ -1,6 +1,9 @@
 ﻿using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
+using Unity.Behavior;
+
 
 public enum EnemyState { None = -1, Attack, }
 
@@ -15,12 +18,15 @@ public class EnemyFSM : MonoBehaviour
 
     private NavMeshAgent navMeshAgent;  // 적 이동 경로 설정 및 이동 제어
 
+    private BehaviorGraphAgent behaviorAgent;	// 적 행동 제어
+
     private EnemyState enemyState;
 
     private void Awake()
     {
         owner = GetComponent<EnemyBase>();
         navMeshAgent = GetComponent<NavMeshAgent>();
+        behaviorAgent = GetComponent<BehaviorGraphAgent>();
 
         navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;
@@ -28,10 +34,11 @@ public class EnemyFSM : MonoBehaviour
         ChangeState(EnemyState.Attack);
     }
 
-    public void Setup(EntityBase target)
+    public void Setup(EntityBase target, GameObject[] wayPoints)
     {
         owner.Target = target;
-        navMeshAgent.SetDestination(target.MiddlePoint);
+
+        behaviorAgent.SetVariableValue("PatrolPoints", wayPoints.ToList());
     }
 
     public void ChangeState(EnemyState newState)
