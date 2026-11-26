@@ -28,6 +28,8 @@ public class SkillSystem : MonoBehaviour
     private Dictionary<SkillElement, int> elementalCounts = new Dictionary<SkillElement, int>();
     private Dictionary<SkillElement, SkillBase> elementalSkills = new Dictionary<SkillElement, SkillBase>();
 
+    public	bool IsSelectSkill { get; private set; } = false;
+
     private void Awake()
     {
         owner = GetComponent<PlayerBase>();
@@ -113,6 +115,8 @@ public class SkillSystem : MonoBehaviour
 
     public void StartSelectSkill()
     {
+        IsSelectSkill = true;
+
         // 스킬 선택 중에는 일시 정지
         gameController.SetTimeScale(0);
 
@@ -133,6 +137,7 @@ public class SkillSystem : MonoBehaviour
         LevelUp(skill);                     // {skill} 스킬 레벨 업
         uiSelectSkill.EndSelectSkillUI();   // 스킬 선택 UI 비활성화
         gameController.SetTimeScale(1);     // 게임 재개
+        IsSelectSkill = false;
     }
 
     private List<SkillBase> GetRandomSkills(Dictionary<string, SkillBase> skills, int count = 3)
