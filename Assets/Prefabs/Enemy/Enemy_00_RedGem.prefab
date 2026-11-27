@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 7215863709534216704}
   - component: {fileID: 6643507501794491168}
   - component: {fileID: 8464474675229792821}
+  - component: {fileID: 613851646553998568}
   m_Layer: 6
   m_Name: Enemy_00_RedGem
   m_TagString: Enemy
@@ -239,8 +240,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52d783f1ffd2b4523a3ecf2972459c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyFSM
-  projectilePrefab: {fileID: 7502433428291959036, guid: 90f90daeef982412eb3f2a592228a53d, type: 3}
-  projectileSpawnPoint: {fileID: 2700243951968524100}
 --- !u!70 &7215863709534216704
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -315,6 +314,10 @@ MonoBehaviour:
   m_Graph: {fileID: -407869487371473623, guid: aa733e259b8f2444ab146fc6f005b91b, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 6250687917161971821
+  - rid: 6250687936300581393
+  - rid: 6250687936300581394
+  - rid: 6250687936300581395
+  - rid: 6250687936443449987
   m_OriginalGraph: {fileID: -407869487371473623, guid: aa733e259b8f2444ab146fc6f005b91b, type: 2}
   m_IsInitialised: 0
   m_IsStarted: 0
@@ -329,6 +332,52 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 1332893366624128834}
+    - rid: 6250687936300581393
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 15528037981630120188
+          m_Value1: 3743706876568308027
+        Name: attackDistance
+        m_Value: 4
+    - rid: 6250687936300581394
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 602956466951591930
+          m_Value1: 3435678111595620320
+        Name: chaseDistance
+        m_Value: 6
+    - rid: 6250687936300581395
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 14738555898528502361
+          m_Value1: 11888808932141597535
+        Name: fallOutDistance
+        m_Value: 10
+    - rid: 6250687936443449987
+      type: {class: 'BlackboardVariable`1[[WeaponBase, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 9790787591670552434
+          m_Value1: 11441470687110931455
+        Name: currentWeapon
+        m_Value: {fileID: 613851646553998568}
+--- !u!114 &613851646553998568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332893366624128834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f97709c065a4472a434cabbf9b80b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponStraight
+  projectilePrefab: {fileID: 7502433428291959036, guid: 90f90daeef982412eb3f2a592228a53d, type: 3}
+  projectileSpawnPoint: {fileID: 2700243951968524100}
 --- !u!1 &1842629897160253104
 GameObject:
   m_ObjectHideFlags: 0
