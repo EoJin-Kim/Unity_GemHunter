@@ -1188,7 +1188,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 916375894}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1313276057}
+        m_TargetAssemblyTypeName: LobbySceneController, Assembly-CSharp
+        m_MethodName: ButtonEvent_GameStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &916375894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1238,6 +1250,7 @@ GameObject:
   - component: {fileID: 1200504277}
   - component: {fileID: 1200504279}
   - component: {fileID: 1200504278}
+  - component: {fileID: 1200504280}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -1304,6 +1317,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1200504280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200504276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58618c9fe37b26b4cbc9756944964630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SwipeUI
+  scrollBar: {fileID: 1569271150}
+  swipeTime: 0.2
+  swipeDistance: 50
 --- !u!1 &1313276056
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,6 +1367,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1fdb0f08c8f5a47359c795a03a966c66, type: 2}
   - {fileID: 11400000, guid: ba74f4d0aea69447a81d52fff1f1897c, type: 2}
   - {fileID: 11400000, guid: 72dece1aa0213442bbf0dcf5421c3228, type: 2}
+  swipeUI: {fileID: 1200504280}
 --- !u!4 &1313276058
 Transform:
   m_ObjectHideFlags: 0

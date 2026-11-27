@@ -8,8 +8,8 @@ public class LobbySceneController : MonoBehaviour
 	private	Transform		parentContent;
 	[SerializeField]
 	private	ChapterData[]	allChapter;
-	// [SerializeField]
-	// private	SwipeUI			swipeUI;
+	[SerializeField]
+	private	SwipeUI			swipeUI;
 
 	private void Awake()
 	{
@@ -22,17 +22,18 @@ public class LobbySceneController : MonoBehaviour
 
 	public void ButtonEvent_GameStart()
 	{
-		// int index = swipeUI.CurrentPage;
-	
-		// if ( allChapter[index].ChapterDatabase.isUnlock == false )
-		// {
-		// 	Logger.Log("잠겨있는 챕터입니다.");
-		// 	return;
-		// }
+		int index = swipeUI.CurrentPage;
 
-		// Logger.Log($"챕터 {index+1} 시작");
+		if ( allChapter[index].ChapterDatabase.isUnlock == false )
+		{
+			Logger.Log("잠겨있는 챕터입니다.");
+			return;
+		}
 
-		// SceneLoader.Instance.LoadScene(SceneNames.Game);
+		Logger.Log($"챕터 {index+1} 시작");
+		PlayerPrefs.SetInt(Constants.ChapterIndex, index);
+
+		SceneLoader.Instance.LoadScene(SceneNames.Game);
 	}
 }
 

@@ -2205,6 +2205,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d096d9407e5ed4381b12addf7cba22a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameController
+  chapters:
+  - {fileID: 11400000, guid: 1fdb0f08c8f5a47359c795a03a966c66, type: 2}
+  - {fileID: 11400000, guid: ba74f4d0aea69447a81d52fff1f1897c, type: 2}
+  - {fileID: 11400000, guid: 72dece1aa0213442bbf0dcf5421c3228, type: 2}
+  enemySpawner: {fileID: 2097697300}
+  textStageNumber: {fileID: 1710235568}
+  enemyCountScale: 0.15
 --- !u!4 &671452640
 Transform:
   m_ObjectHideFlags: 0
@@ -8923,6 +8930,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.95, y: 0.3}
   m_EdgeRadius: 0
+--- !u!114 &1710235568 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1956517631943401660, guid: b506bd82b4acb4cb98c9ba5de34c3a4a, type: 3}
+  m_PrefabInstance: {fileID: 5350872648139437280}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
 --- !u!1 &1710376086
 GameObject:
   m_ObjectHideFlags: 0
@@ -9610,6 +9628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   tilemap: {fileID: 1729559250}
+  enemySpawnTile: {fileID: 9197039091393911467, guid: c5ba35e20038606469b7ec020096d7b3, type: 3}
   enemyPrefabs:
   - {fileID: 1332893366624128834, guid: a52c2e8e6a3844be39cd9f8e2b0c79af, type: 3}
   parentTransform: {fileID: 2099623618}
