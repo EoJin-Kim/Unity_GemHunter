@@ -1,17 +1,22 @@
 ﻿using System.Collections;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class IntroSceneController : MonoBehaviour
 {
 	[SerializeField]
-	private	SceneNames		nextScene;
+	private SceneNames nextScene;
 	[SerializeField]
-	private	TextMeshProUGUI	textPressAnyKey;
+	private TextMeshProUGUI textPressAnyKey;
+
+	private void Awake()
+	{
+		Database.Read();
+	}
 
 	private IEnumerator Start()
 	{
-		while ( true )
+		while (true)
 		{
 			yield return StartCoroutine(FadeEffect.Fade(textPressAnyKey, 1, 0));
 
@@ -21,7 +26,7 @@ public class IntroSceneController : MonoBehaviour
 
 	private void Update()
 	{
-		if ( Utils.IsAnyInputDown() )
+		if (Utils.IsAnyInputDown())
 		{
 			SceneLoader.Instance.LoadScene(nextScene);
 		}
